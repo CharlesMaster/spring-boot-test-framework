@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.domain.mapper.WalletRecordDOMapper">
+    <!-- 自动生成,请修�? TB_WALLET_RECORD.xml -->
+    <resultMap id="BaseResultMap"  type="com.example.demo.domain.model.WalletRecordDO">
+        <id column="ID" property="id" jdbcType="BIGINT" javaType="Long"/>
+        <result column="TITLE" property="title" jdbcType="VARCHAR" javaType="String"/>
+        <result column="AMOUNT" property="amount" jdbcType="BIGINT" javaType="Long"/>
+        <result column="STATUS" property="status" jdbcType="INTEGER" javaType="Integer"/>
+        <result column="BALANCE" property="balance" jdbcType="BIGINT" javaType="Long"/>
+        <result column="CONTENT" property="content" jdbcType="VARCHAR" javaType="String"/>
+        <result column="CUSER_ID" property="cuserId" jdbcType="VARCHAR" javaType="String"/>
+        <result column="ORDER_ID" property="orderId" jdbcType="BIGINT" javaType="Long"/>
+        <result column="TRADE_NO" property="tradeNo" jdbcType="VARCHAR" javaType="String"/>
+        <result column="CUSER_SEX" property="cuserSex" jdbcType="VARCHAR" javaType="String"/>
+        <result column="MEDIUM_ID" property="mediumId" jdbcType="BIGINT" javaType="Long"/>
+        <result column="WALLET_ID" property="walletId" jdbcType="BIGINT" javaType="Long"/>
+        <result column="COMPANY_ID" property="companyId" jdbcType="VARCHAR" javaType="String"/>
+        <result column="CUSER_NAME" property="cuserName" jdbcType="VARCHAR" javaType="String"/>
+        <result column="ORDER_CODE" property="orderCode" jdbcType="VARCHAR" javaType="String"/>
+        <result column="TRADE_TIME" property="tradeTime" jdbcType="BIGINT" javaType="Long"/>
+        <result column="TRADE_TYPE" property="tradeType" jdbcType="VARCHAR" javaType="String"/>
+        <result column="CREATE_TIME" property="createTime" jdbcType="BIGINT" javaType="Long"/>
+        <result column="MEDIUM_CODE" property="mediumCode" jdbcType="VARCHAR" javaType="String"/>
+        <result column="MEDIUM_TYPE" property="mediumType" jdbcType="VARCHAR" javaType="String"/>
+        <result column="RECORD_TYPE" property="recordType" jdbcType="INTEGER" javaType="Integer"/>
+        <result column="WALLET_CODE" property="walletCode" jdbcType="VARCHAR" javaType="String"/>
+        <result column="CUSER_TELEPHONE" property="cuserTelephone" jdbcType="VARCHAR" javaType="String"/>
+        <result column="CHANNEL_TYPE" property="channelType" jdbcType="VARCHAR" javaType="String"/>
+    </resultMap>
+
+
+    <sql id="Base_Column_List">
+        ID,TITLE,AMOUNT,STATUS,BALANCE,CONTENT,CUSER_ID,ORDER_ID,TRADE_NO,CUSER_SEX,MEDIUM_ID,WALLET_ID,COMPANY_ID,CUSER_NAME,ORDER_CODE,TRADE_TIME,TRADE_TYPE,CREATE_TIME,MEDIUM_CODE,MEDIUM_TYPE,RECORD_TYPE,WALLET_CODE,CUSER_TELEPHONE,CHANNEL_TYPE
+    </sql>
+
+
+    <!--插入�?:TB_WALLET_RECORD-->
+    <insert id="insert" >
+        <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER">
+            SELECT
+            LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO TB_WALLET_RECORD(
+            ID
+            ,TITLE
+            ,AMOUNT
+            ,STATUS
+            ,BALANCE
+            ,CONTENT
+            ,CUSER_ID
+            ,ORDER_ID
+            ,TRADE_NO
+            ,CUSER_SEX
+            ,MEDIUM_ID
+            ,WALLET_ID
+            ,COMPANY_ID
+            ,CUSER_NAME
+            ,ORDER_CODE
+            ,TRADE_TIME
+            ,TRADE_TYPE
+            ,CREATE_TIME
+            ,MEDIUM_CODE
+            ,MEDIUM_TYPE
+            ,RECORD_TYPE
+            ,WALLET_CODE
+            ,CUSER_TELEPHONE
+            ,CHANNEL_TYPE
+        )VALUES(
+             #{id,jdbcType=BIGINT}
+            , #{title,jdbcType=VARCHAR}
+            , #{amount,jdbcType=BIGINT}
+            , #{status,jdbcType=INTEGER}
+            , #{balance,jdbcType=BIGINT}
+            , #{content,jdbcType=VARCHAR}
+            , #{cuserId,jdbcType=VARCHAR}
+            , #{orderId,jdbcType=BIGINT}
+            , #{tradeNo,jdbcType=VARCHAR}
+            , #{cuserSex,jdbcType=VARCHAR}
+            , #{mediumId,jdbcType=BIGINT}
+            , #{walletId,jdbcType=BIGINT}
+            , #{companyId,jdbcType=VARCHAR}
+            , #{cuserName,jdbcType=VARCHAR}
+            , #{orderCode,jdbcType=VARCHAR}
+            , #{tradeTime,jdbcType=BIGINT}
+            , #{tradeType,jdbcType=VARCHAR}
+            , #{createTime,jdbcType=BIGINT}
+            , #{mediumCode,jdbcType=VARCHAR}
+            , #{mediumType,jdbcType=VARCHAR}
+            , #{recordType,jdbcType=INTEGER}
+            , #{walletCode,jdbcType=VARCHAR}
+            , #{cuserTelephone,jdbcType=VARCHAR}
+            , #{channelType,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <!--更新�?:TB_WALLET_RECORD-->
+    <update id="update" >
+        UPDATE /*MS-TB-WALLET-RECORD-UPDATE*/ TB_WALLET_RECORD
+        <trim prefix="set" suffixOverrides=",">
+            <if test="title != null and  title != ''">
+                TITLE           = #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="amount != null and  amount != ''">
+                AMOUNT          = #{amount,jdbcType=BIGINT},
+            </if>
+            <if test="status != null and  status != ''">
+                STATUS          = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="balance != null and  balance != ''">
+                BALANCE         = #{balance,jdbcType=BIGINT},
+            </if>
+            <if test="content != null and  content != ''">
+                CONTENT         = #{content,jdbcType=VARCHAR},
+            </if>
+            <if test="cuserId != null and  cuserId != ''">
+                CUSER_ID        = #{cuserId,jdbcType=VARCHAR},
+            </if>
+            <if test="orderId != null and  orderId != ''">
+                ORDER_ID        = #{orderId,jdbcType=BIGINT},
+            </if>
+            <if test="tradeNo != null and  tradeNo != ''">
+                TRADE_NO        = #{tradeNo,jdbcType=VARCHAR},
+            </if>
+            <if test="cuserSex != null and  cuserSex != ''">
+                CUSER_SEX       = #{cuserSex,jdbcType=VARCHAR},
+            </if>
+            <if test="mediumId != null and  mediumId != ''">
+                MEDIUM_ID       = #{mediumId,jdbcType=BIGINT},
+            </if>
+            <if test="walletId != null and  walletId != ''">
+                WALLET_ID       = #{walletId,jdbcType=BIGINT},
+            </if>
+            <if test="companyId != null and  companyId != ''">
+                COMPANY_ID      = #{companyId,jdbcType=VARCHAR},
+            </if>
+            <if test="cuserName != null and  cuserName != ''">
+                CUSER_NAME      = #{cuserName,jdbcType=VARCHAR},
+            </if>
+            <if test="orderCode != null and  orderCode != ''">
+                ORDER_CODE      = #{orderCode,jdbcType=VARCHAR},
+            </if>
+            <if test="tradeTime != null and  tradeTime != ''">
+                TRADE_TIME      = #{tradeTime,jdbcType=BIGINT},
+            </if>
+            <if test="tradeType != null and  tradeType != ''">
+                TRADE_TYPE      = #{tradeType,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null and  createTime != ''">
+                CREATE_TIME     = #{createTime,jdbcType=BIGINT},
+            </if>
+            <if test="mediumCode != null and  mediumCode != ''">
+                MEDIUM_CODE     = #{mediumCode,jdbcType=VARCHAR},
+            </if>
+            <if test="mediumType != null and  mediumType != ''">
+                MEDIUM_TYPE     = #{mediumType,jdbcType=VARCHAR},
+            </if>
+            <if test="recordType != null and  recordType != ''">
+                RECORD_TYPE     = #{recordType,jdbcType=INTEGER},
+            </if>
+            <if test="walletCode != null and  walletCode != ''">
+                WALLET_CODE     = #{walletCode,jdbcType=VARCHAR},
+            </if>
+            <if test="cuserTelephone != null and  cuserTelephone != ''">
+                CUSER_TELEPHONE = #{cuserTelephone,jdbcType=VARCHAR},
+            </if>
+            <if test="channelType != null and  channelType != ''">
+                CHANNEL_TYPE = #{channelType,jdbcType=VARCHAR},
+            </if>
+        </trim>
+        WHERE
+            ID              = #{id,jdbcType=BIGINT}
+    </update>
+
+    <!--根据主键删除数据:TB_WALLET_RECORD-->
+    <delete id="deleteByPrimary" >
+        DELETE /*MS-TB-WALLET-RECORD-DELETEBYPRIMARY*/ FROM
+            TB_WALLET_RECORD
+        WHERE
+            ID = #{id,jdbcType=BIGINT}
+    </delete>
+
+    <!--根据主键获取数据:TB_WALLET_RECORD-->
+    <select id="getByPrimary" resultMap="BaseResultMap">
+        SELECT /*MS-TB-WALLET-RECORD-GETBYPRIMARY*/  <include refid="Base_Column_List" />
+        FROM TB_WALLET_RECORD
+        WHERE
+            ID = #{id,jdbcType=BIGINT}
+    </select>
+
+    <!--foreach支持 many pageCount-->
+    <select id="getListParamsPageCount"  resultType="int">
+        SELECT
+          COUNT(*) AS total 
+        FROM
+ TB_WALLET_RECORD
+        WHERE
+        	1 = 1
+        	
+		   <if test="cuserName != null and  cuserName != ''">
+           	AND CUSER_NAME LIKE CONCAT(#{cuserName,jdbcType=VARCHAR}, '%')
+           </if>
+           <if test="cuserTelephone != null and  cuserTelephone != ''">
+           	AND CUSER_TELEPHONE LIKE CONCAT(#{cuserTelephone,jdbcType=VARCHAR}, '%')
+           </if>
+           <if test="companyId != null and  companyId != ''">
+           	AND COMPANY_ID = #{companyId,jdbcType=VARCHAR}
+           </if>
+           <if test="cuserId != null and  cuserId != ''">
+           	AND CUSER_ID = #{cuserId,jdbcType=VARCHAR}
+           </if>
+           <if test="walletId != null and  walletId != ''">
+           	AND WALLET_ID = #{walletId,jdbcType=BIGINT}
+           </if>
+           <if test="walletCode != null and  walletCode != ''">
+           	AND WALLET_CODE = #{walletCode,jdbcType=VARCHAR}
+           </if>
+           <if test="tradeType != null and  tradeType != ''">
+           	AND TRADE_TYPE = #{tradeType,jdbcType=VARCHAR}
+           </if>
+           <if test="tradeNo != null and  tradeNo != ''">
+           	AND TRADE_NO = #{tradeNo,jdbcType=VARCHAR}
+           </if>
+           <if test="orderCode != null and  orderCode != ''">
+           	AND ORDER_CODE = #{orderCode,jdbcType=VARCHAR}
+           </if>
+           <if test="orderId != null and  orderId != ''">
+           	AND ORDER_ID = #{orderId,jdbcType=BIGINT}
+           </if>
+           <if test="mediumType != null and  mediumType != ''">
+           	AND MEDIUM_TYPE = #{mediumType,jdbcType=VARCHAR}
+           </if>
+           <if test="mediumCode != null and  mediumCode != ''">
+           	AND MEDIUM_CODE = #{mediumCode,jdbcType=VARCHAR}
+           </if>
+           <if test="recordType != null and  recordType != ''">
+           	AND RECORD_TYPE = #{recordType,jdbcType=INTEGER}
+           </if>
+           <if test="tradeTimeStart != null and  tradeTimeStart != ''">
+           	AND TRADE_TIME &gt; #{tradeTimeStart,jdbcType=BIGINT}
+           </if> 
+           <if test="tradeTimeEnd != null and  tradeTimeEnd != ''">
+           	AND TRADE_TIME &lt; #{tradeTimeEnd,jdbcType=BIGINT}
+           </if>
+           <if test="status != null and  status != ''">
+           	AND STATUS = #{status,jdbcType=INTEGER}
+           </if>
+            <if test="channelType != null and  channelType != ''">
+            AND CHANNEL_TYPE = #{channelType,jdbcType=VARCHAR}
+            </if>
+    </select>
+    <!--foreach支持 many pageResult-->
+    <select id="getListParamsPageResult"  resultMap="BaseResultMap">
+        SELECT /*MS-TB-WALLET-RECORD-GETLISTPARAMSPAGE*/  <include refid="Base_Column_List" />
+        FROM TB_WALLET_RECORD
+        WHERE
+        	1 = 1
+        	
+		   <if test="cuserName != null and  cuserName != ''">
+           	AND CUSER_NAME LIKE CONCAT(#{cuserName,jdbcType=VARCHAR}, '%')
+           </if>
+           <if test="cuserTelephone != null and  cuserTelephone != ''">
+           	AND CUSER_TELEPHONE LIKE CONCAT(#{cuserTelephone,jdbcType=VARCHAR}, '%')
+           </if>
+           <if test="companyId != null and  companyId != ''">
+           	AND COMPANY_ID = #{companyId,jdbcType=VARCHAR}
+           </if>
+           <if test="cuserId != null and  cuserId != ''">
+           	AND CUSER_ID = #{cuserId,jdbcType=VARCHAR}
+           </if>
+           <if test="walletId != null and  walletId != ''">
+           	AND WALLET_ID = #{walletId,jdbcType=BIGINT}
+           </if>
+           <if test="walletCode != null and  walletCode != ''">
+           	AND WALLET_CODE = #{walletCode,jdbcType=VARCHAR}
+           </if>
+           <if test="tradeType != null and  tradeType != ''">
+           	AND TRADE_TYPE = #{tradeType,jdbcType=VARCHAR}
+           </if>
+           <if test="tradeNo != null and  tradeNo != ''">
+           	AND TRADE_NO = #{tradeNo,jdbcType=VARCHAR}
+           </if>
+           <if test="orderCode != null and  orderCode != ''">
+           	AND ORDER_CODE = #{orderCode,jdbcType=VARCHAR}
+           </if>
+           <if test="orderId != null and  orderId != ''">
+           	AND ORDER_ID = #{orderId,jdbcType=BIGINT}
+           </if>
+           <if test="mediumType != null and  mediumType != ''">
+           	AND MEDIUM_TYPE = #{mediumType,jdbcType=VARCHAR}
+           </if>
+           <if test="mediumCode != null and  mediumCode != ''">
+           	AND MEDIUM_CODE = #{mediumCode,jdbcType=VARCHAR}
+           </if>
+           <if test="recordType != null and  recordType != ''">
+           	AND RECORD_TYPE = #{recordType,jdbcType=INTEGER}
+           </if>
+           <if test="tradeTimeStart != null and  tradeTimeStart != ''">
+           	AND TRADE_TIME &gt; #{tradeTimeStart,jdbcType=BIGINT}
+           </if> 
+           <if test="tradeTimeEnd != null and  tradeTimeEnd != ''">
+           	AND TRADE_TIME &lt; #{tradeTimeEnd,jdbcType=BIGINT}
+           </if>
+           <if test="status != null and  status != ''">
+           	AND STATUS = #{status,jdbcType=INTEGER}
+           </if>
+            <if test="channelType != null and  channelType != ''">
+                AND CHANNEL_TYPE = #{channelType,jdbcType=VARCHAR}
+            </if>
+        order by CREATE_TIME DESC
+        limit #{startRow},#{limit}
+    </select>
+
+
+    <!--不分页信息查询导出-->
+    <select id="getListParamsResult"  resultMap="BaseResultMap">
+        SELECT /*MS-TB-WALLET-RECORD-GETLISTPARAMSPAGE*/  <include refid="Base_Column_List" />
+        FROM TB_WALLET_RECORD
+        WHERE
+        1 = 1
+
+        <if test="cuserName != null and  cuserName != ''">
+            AND CUSER_NAME LIKE CONCAT(#{cuserName,jdbcType=VARCHAR}, '%')
+        </if>
+        <if test="cuserTelephone != null and  cuserTelephone != ''">
+            AND CUSER_TELEPHONE LIKE CONCAT(#{cuserTelephone,jdbcType=VARCHAR}, '%')
+        </if>
+        <if test="companyId != null and  companyId != ''">
+            AND COMPANY_ID = #{companyId,jdbcType=VARCHAR}
+        </if>
+        <if test="cuserId != null and  cuserId != ''">
+            AND CUSER_ID = #{cuserId,jdbcType=VARCHAR}
+        </if>
+        <if test="walletId != null and  walletId != ''">
+            AND WALLET_ID = #{walletId,jdbcType=BIGINT}
+        </if>
+        <if test="walletCode != null and  walletCode != ''">
+            AND WALLET_CODE = #{walletCode,jdbcType=VARCHAR}
+        </if>
+        <if test="tradeType != null and  tradeType != ''">
+            AND TRADE_TYPE = #{tradeType,jdbcType=VARCHAR}
+        </if>
+        <if test="tradeNo != null and  tradeNo != ''">
+            AND TRADE_NO = #{tradeNo,jdbcType=VARCHAR}
+        </if>
+        <if test="orderCode != null and  orderCode != ''">
+            AND ORDER_CODE = #{orderCode,jdbcType=VARCHAR}
+        </if>
+        <if test="orderId != null and  orderId != ''">
+            AND ORDER_ID = #{orderId,jdbcType=BIGINT}
+        </if>
+        <if test="mediumType != null and  mediumType != ''">
+            AND MEDIUM_TYPE = #{mediumType,jdbcType=VARCHAR}
+        </if>
+        <if test="mediumCode != null and  mediumCode != ''">
+            AND MEDIUM_CODE = #{mediumCode,jdbcType=VARCHAR}
+        </if>
+        <if test="recordType != null and  recordType != ''">
+            AND RECORD_TYPE = #{recordType,jdbcType=INTEGER}
+        </if>
+        <if test="tradeTimeStart != null and  tradeTimeStart != ''">
+            AND TRADE_TIME &gt; #{tradeTimeStart,jdbcType=BIGINT}
+        </if>
+        <if test="tradeTimeEnd != null and  tradeTimeEnd != ''">
+            AND TRADE_TIME &lt; #{tradeTimeEnd,jdbcType=BIGINT}
+        </if>
+        <if test="status != null and  status != ''">
+            AND STATUS = #{status,jdbcType=INTEGER}
+        </if>
+        <if test="channelType != null and  channelType != ''">
+            AND CHANNEL_TYPE = #{channelType,jdbcType=VARCHAR}
+        </if>
+        order by CREATE_TIME DESC
+    </select>
+
+    <update id="updateCompanyId">
+        UPDATE TB_WALLET_RECORD
+        <trim prefix="set" suffixOverrides=",">
+            <if test="userCenterId != null and  userCenterId != ''">
+                COMPANY_ID      = #{userCenterId,jdbcType=VARCHAR},
+            </if>
+        </trim>
+        WHERE
+        COMPANY_ID      = #{companyId,jdbcType=VARCHAR}
+    </update>
+</mapper>
